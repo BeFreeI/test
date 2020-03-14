@@ -58,7 +58,7 @@ header nav ul li::before {
     color: #494e62;
 }
 
-header nav ul a.active {
+header nav ul a.activ {
     color: #f06c64;
 }
 
@@ -232,7 +232,7 @@ header nav ul {
     display: flex;
 }
 
-.portfolio nav li.active {
+.portfolio nav li.activ {
     color: #c5c5c5;
     border: 1px solid #c5c5c5;
 }
@@ -263,6 +263,10 @@ header nav ul {
     grid-template-columns: repeat(4, 220px);
     grid-row-gap: 20px;
     grid-column-gap: 20px;
+}
+
+.portfolio .conteiner img.activ {
+    border: 5px solid #F06C64;
 }
 
 .aboutUs {

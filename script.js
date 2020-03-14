@@ -27,6 +27,7 @@ document.querySelectorAll(".portfolio nav li").forEach((el) => el.addEventListen
         images = images.reverse();
         document.querySelectorAll(".portfolio .conteiner img").forEach((el) => el.classList.remove("activ"));
         document.querySelectorAll(".portfolio .conteiner img").forEach((el, i) => el.src = images[i]);
+        this.classList.add("activ");
     };
 }));
 menu(".portfolio nav li");
@@ -39,11 +40,3 @@ document.querySelectorAll(".portfolio .conteiner img").forEach((el) => {
         }
     })
 });
-
-document.querySelector("button").addEventListener('click', () => {
-    document.querySelector(".push").style.display = "none";
-})
-
-document.querySelector("form input[value='Submit']").addEventListener('focus', function () {
-    document.querySelector(".push").style.display = "block";
-})
