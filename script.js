@@ -1,12 +1,11 @@
-function name(selector){
+function menu(selector){
     document.querySelectorAll(selector).forEach((el) => el.addEventListener('click', function () {
-    document.querySelectorAll(selector).forEach((el) => el.classList.remove("active"));
-    this.classList.add("active");
+        document.querySelectorAll(selector).forEach((el) => el.classList.remove("activ"));
+        this.classList.add("activ");
 }));
 }
 
-name(".menu a");
-name(".portfolio nav li");
+menu(".menu a");
 
 let images = [
     "assets/img/portfolio/Project1.png",
@@ -24,8 +23,27 @@ let images = [
 ];
 
 document.querySelectorAll(".portfolio nav li").forEach((el) => el.addEventListener('click', function () {
-    images = images.reverse();
-    document.querySelectorAll(".portfolio .conteiner img").forEach((el, i) => {
-        el.src = images[i];
-    });
+    if(!this.classList.contains("activ")) {
+        images = images.reverse();
+        document.querySelectorAll(".portfolio .conteiner img").forEach((el) => el.classList.remove("activ"));
+        document.querySelectorAll(".portfolio .conteiner img").forEach((el, i) => el.src = images[i]);
+    };
 }));
+menu(".portfolio nav li");
+
+document.querySelectorAll(".portfolio .conteiner img").forEach((el) => {
+    el.addEventListener("click", function () {
+        if(!this.classList.contains("activ")) {
+            document.querySelectorAll(".portfolio .conteiner img").forEach((el) => el.classList.remove("activ"));
+            this.classList.add("activ");
+        }
+    })
+});
+
+document.querySelector("button").addEventListener('click', () => {
+    document.querySelector(".push").style.display = "none";
+})
+
+document.querySelector("form input[value='Submit']").addEventListener('focus', function () {
+    document.querySelector(".push").style.display = "block";
+})
